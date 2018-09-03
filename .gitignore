@@ -1,0 +1,4 @@
+*.xcodeproj/project.xcworkspace/*
+*/xcuserdata/*
+*/Support Files/GoogleService-Info.plist
+Pods/
