@@ -14,7 +14,7 @@ class AlbumService {
     func getAll(albums: @escaping ([AlbumEntity]) -> ()) {
         let db = Firestore.firestore()
         
-        db.collection("albums").getDocuments { querySnapshot, error in
+        db.collection("albums").addSnapshotListener { querySnapshot, error in
             if let error = error {
                 print("error getting albums: ", error.localizedDescription)
                 return
@@ -28,7 +28,9 @@ class AlbumService {
             let albumList = querySnapshot.documents
                 .map { AlbumEntity(id: $0.documentID, data: $0.data() ) }
             
-            albums(albumList)
+            DispatchQueue.main.async {
+                albums(albumList)
+            }
         }
     }
 }

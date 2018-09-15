@@ -13,18 +13,21 @@ class AlbumListViewController: UIViewController {
     
     let albumService = AlbumService()
     
+    var albums: [AlbumEntity]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+//        tableView.delegate = self
         
         setupUI()
         
         albumService.getAll { albums in
+            self.albums = albums
+            self.tableView.reloadData()
             print("albums: ", albums)
         }
 
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
     }
     
     private func setupUI() {
