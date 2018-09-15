@@ -19,4 +19,8 @@ class AlbumDetailsViewController: UIViewController {
         
         self.title = album.name
     }
+    
+    @IBAction func addTappedHandler(_ sender: Any) {
+        print("Add tapped!")
+    }
 }
