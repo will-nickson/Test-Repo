@@ -10,11 +10,10 @@ import Foundation
 import FirebaseFirestore
 
 class AlbumService {
-
     func getAll(albums: @escaping ([AlbumEntity]) -> ()) {
-        let db = Firestore.firestore()
+        let albumsCollection = Firestore.getFirestore().albums()
         
-        db.collection("albums").addSnapshotListener { querySnapshot, error in
+        albumsCollection.addSnapshotListener { querySnapshot, error in
             if let error = error {
                 print("error getting albums: ", error.localizedDescription)
                 return

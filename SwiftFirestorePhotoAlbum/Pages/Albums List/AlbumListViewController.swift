@@ -10,6 +10,7 @@ import UIKit
 
 class AlbumListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     let albumService = AlbumService()
     
@@ -17,21 +18,23 @@ class AlbumListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-//        tableView.delegate = self
-        
         setupUI()
         
         albumService.getAll { albums in
             self.albums = albums
             self.tableView.reloadData()
-            print("albums: ", albums)
+            self.activityIndicator.stopAnimating()
         }
-
     }
     
     private func setupUI() {
         tableView.tableFooterView = UIView()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AlbumDetailsSegue", let index = sender as? Int, let albumDetailsController = segue.destination as? AlbumDetailsViewController, let album = albums?[index] {
+            albumDetailsController.album = album
+        }
     }
 }
 
