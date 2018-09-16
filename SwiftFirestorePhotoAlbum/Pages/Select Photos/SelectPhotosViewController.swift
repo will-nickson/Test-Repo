@@ -19,6 +19,8 @@ class SelectPhotosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.allowsMultipleSelection = true
+        
         PHPhotoLibrary.requestAuthorization { status in
             switch status {
             case .authorized:

@@ -18,6 +18,7 @@
 		FAA9D262214DC001000DE691 /* SelectPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9D261214DC001000DE691 /* SelectPhotosViewController.swift */; };
 		FAA9D264214EAE14000DE691 /* SelectPhotosViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9D263214EAE14000DE691 /* SelectPhotosViewController+DataSource.swift */; };
 		FAA9D266214EAE38000DE691 /* SelectPhotosViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9D265214EAE38000DE691 /* SelectPhotosViewController+Delegate.swift */; };
+		FAA9D268214EBC52000DE691 /* SelectPhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9D267214EBC52000DE691 /* SelectPhotosCell.swift */; };
 		FAB52271213D52F200D04742 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB52270213D52F200D04742 /* AppDelegate.swift */; };
 		FAB52273213D52F200D04742 /* AlbumListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB52272213D52F200D04742 /* AlbumListViewController.swift */; };
 		FAB52276213D52F200D04742 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB52274213D52F200D04742 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		FAA9D261214DC001000DE691 /* SelectPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotosViewController.swift; sourceTree = "<group>"; };
 		FAA9D263214EAE14000DE691 /* SelectPhotosViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SelectPhotosViewController+DataSource.swift"; sourceTree = "<group>"; };
 		FAA9D265214EAE38000DE691 /* SelectPhotosViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SelectPhotosViewController+Delegate.swift"; sourceTree = "<group>"; };
+		FAA9D267214EBC52000DE691 /* SelectPhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotosCell.swift; sourceTree = "<group>"; };
 		FAB5226D213D52F200D04742 /* SwiftFirestorePhotoAlbum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFirestorePhotoAlbum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB52270213D52F200D04742 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAB52272213D52F200D04742 /* AlbumListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				FAA9D261214DC001000DE691 /* SelectPhotosViewController.swift */,
 				FAA9D263214EAE14000DE691 /* SelectPhotosViewController+DataSource.swift */,
 				FAA9D265214EAE38000DE691 /* SelectPhotosViewController+Delegate.swift */,
+				FAA9D267214EBC52000DE691 /* SelectPhotosCell.swift */,
 			);
 			path = "Select Photos";
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 			files = (
 				FAA9D255214DA5C9000DE691 /* AlbumListViewController+DataSource.swift in Sources */,
 				FAB52273213D52F200D04742 /* AlbumListViewController.swift in Sources */,
+				FAA9D268214EBC52000DE691 /* SelectPhotosCell.swift in Sources */,
 				FAA9D266214EAE38000DE691 /* SelectPhotosViewController+Delegate.swift in Sources */,
 				FAA9D264214EAE14000DE691 /* SelectPhotosViewController+DataSource.swift in Sources */,
 				FAB52271213D52F200D04742 /* AppDelegate.swift in Sources */,
