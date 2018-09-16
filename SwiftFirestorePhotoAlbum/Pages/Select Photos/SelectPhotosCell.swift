@@ -27,8 +27,4 @@ class SelectPhotosCell: UICollectionViewCell {
     func configure(image: UIImage) {
         imageView.image = image
     }
-    
-    func toggleSelected() {
-        
-    }
 }

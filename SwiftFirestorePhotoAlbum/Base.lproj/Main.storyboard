@@ -114,8 +114,7 @@
                     <navigationItem key="navigationItem" id="MRR-gy-JNW">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="nb7-Mf-jfl">
                             <connections>
-                                <action selector="addTappedHandler:" destination="tzh-WQ-Es8" id="02n-CD-Mr6"/>
-                                <segue destination="Lii-Ee-lgn" kind="presentation" id="FTc-5b-dfz"/>
+                                <segue destination="Lii-Ee-lgn" kind="presentation" identifier="SelectPhotosSegue" id="FTc-5b-dfz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

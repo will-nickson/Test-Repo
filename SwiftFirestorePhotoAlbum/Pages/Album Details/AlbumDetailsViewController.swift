@@ -20,7 +20,9 @@ class AlbumDetailsViewController: UIViewController {
         self.title = album.name
     }
     
-    @IBAction func addTappedHandler(_ sender: Any) {
-        print("Add tapped!")
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SelectPhotosSegue", let selectPhotosController = segue.destination.childViewControllers.first as? SelectPhotosViewController {
+            selectPhotosController.album = album
+        }
     }
 }

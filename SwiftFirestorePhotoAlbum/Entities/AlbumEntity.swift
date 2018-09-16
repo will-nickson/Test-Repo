@@ -9,11 +9,11 @@
 import Foundation
 
 struct AlbumEntity {
-    let entityId: String
+    let albumId: String
     let name: String
     
     init(id: String, data: [String: Any]) {
-        self.entityId = id
+        self.albumId = id
         self.name = data["name"] as? String ?? ""
     }
 }

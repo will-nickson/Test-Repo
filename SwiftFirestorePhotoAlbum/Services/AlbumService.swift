@@ -10,6 +10,11 @@ import Foundation
 import FirebaseFirestore
 
 class AlbumService {
+    
+    private init() {}
+    
+    static let shared = AlbumService()
+    
     func getAll(albums: @escaping ([AlbumEntity]) -> ()) {
         let albumsCollection = Firestore.getFirestore().albums()
         
@@ -31,5 +36,17 @@ class AlbumService {
                 albums(albumList)
             }
         }
+    }
+    
+    func upload(images: [Data], albumId: String, completion: @escaping () -> ()) {
+        let imagesWithIds = images
+            .map { (id: UUID().uuidString, imageData: $0) }
+        
+        let albumDocument = Firestore.getFirestore().album(id: albumId)
+        
+        let imagesIds = imagesWithIds.map { $0.id }
+        albumDocument.setData(["images": imagesIds])
+        
+        completion()
     }
 }

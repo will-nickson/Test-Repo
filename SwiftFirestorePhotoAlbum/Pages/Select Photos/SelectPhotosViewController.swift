@@ -10,7 +10,8 @@ import UIKit
 import Photos
 
 class SelectPhotosViewController: UIViewController {
-
+    var album: AlbumEntity!
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -63,6 +64,19 @@ class SelectPhotosViewController: UIViewController {
     }
     
     @IBAction func saveTappedHandler(_ sender: Any) {
+        if let selectedIndexes = collectionView.indexPathsForSelectedItems {
+            let imagesDataToUpload = selectedIndexes
+                .map { $0.row }
+                .map { images[$0] }
+                .map { UIImagePNGRepresentation($0)! }
+            
+            AlbumService.shared.upload(images: imagesDataToUpload, albumId: album.albumId) {
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+            return
+        }
+        
         self.dismiss(animated: true, completion: nil)
     }
 }

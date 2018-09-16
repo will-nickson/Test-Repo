@@ -12,15 +12,13 @@ class AlbumListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    let albumService = AlbumService()
-    
     var albums: [AlbumEntity]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         
-        albumService.getAll { albums in
+        AlbumService.shared.getAll { albums in
             self.albums = albums
             self.tableView.reloadData()
             self.activityIndicator.stopAnimating()
