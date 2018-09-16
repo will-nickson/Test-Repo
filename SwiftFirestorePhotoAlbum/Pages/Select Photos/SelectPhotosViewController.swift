@@ -7,14 +7,53 @@
 //
 
 import UIKit
+import Photos
 
 class SelectPhotosViewController: UIViewController {
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var images = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //
+        
+        PHPhotoLibrary.requestAuthorization { status in
+            switch status {
+            case .authorized:
+                let fetchOptions = PHFetchOptions()
+                let allPhotos = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+                print("Found \(allPhotos.count) assets")
+                
+                let im = PHImageManager.default()
+                
+                let targetSize = CGSize(width: 350, height: 350)
+                
+                let options = PHImageRequestOptions()
+                options.isSynchronous = true
+                
+                allPhotos.enumerateObjects { (asset, count, _) in
+                    im.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: options, resultHandler: { (image, _) in
+                        if let image = image {
+                            self.images.append(image)
+                        }
+                    })
+                    
+                    if count == allPhotos.count - 1 {
+                        DispatchQueue.main.async {
+                            self.activityIndicator.stopAnimating()
+                            self.collectionView.reloadData()
+                        }
+                    }
+                }
+            case .denied, .restricted:
+                print("Not allowed")
+            case .notDetermined:
+                // Should not see this when requesting
+                print("Not determined yet")
+            }
+        }
     }
     
     @IBAction func cancelTappedHandler(_ sender: Any) {

@@ -140,27 +140,45 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NWF-FH-4VZ">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="121" height="101"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="mCV-O9-ZON">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="mCV-O9-ZON">
+                                        <rect key="frame" x="0.0" y="0.0" width="121" height="101"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="121" height="101"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ed-9u-nGp">
+                                                    <rect key="frame" x="39" y="40" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="X5a-d2-IZE" id="Ztb-oQ-ElQ"/>
+                                    <outlet property="delegate" destination="X5a-d2-IZE" id="d5z-I5-IdD"/>
+                                </connections>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="7gY-Fe-Xeg">
+                                <rect key="frame" x="177.5" y="355.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="uUP-77-83z" firstAttribute="bottom" secondItem="4HS-md-Fez" secondAttribute="bottom" id="Csr-EP-EOC"/>
                             <constraint firstItem="4HS-md-Fez" firstAttribute="leading" secondItem="uUP-77-83z" secondAttribute="leading" id="XAw-mx-67b"/>
+                            <constraint firstItem="7gY-Fe-Xeg" firstAttribute="centerY" secondItem="uUP-77-83z" secondAttribute="centerY" id="aox-0w-nJP"/>
+                            <constraint firstItem="7gY-Fe-Xeg" firstAttribute="centerX" secondItem="uUP-77-83z" secondAttribute="centerX" id="j5i-TV-dNI"/>
                             <constraint firstItem="4HS-md-Fez" firstAttribute="top" secondItem="uUP-77-83z" secondAttribute="top" id="xlB-hN-I0j"/>
                             <constraint firstItem="uUP-77-83z" firstAttribute="trailing" secondItem="4HS-md-Fez" secondAttribute="trailing" id="yaB-3V-Khh"/>
                         </constraints>
@@ -179,6 +197,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="7gY-Fe-Xeg" id="Xv1-jy-p13"/>
                         <outlet property="collectionView" destination="4HS-md-Fez" id="2oo-UC-qbK"/>
                     </connections>
                 </viewController>
