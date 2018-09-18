@@ -17,6 +17,10 @@ class AlbumDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ImageService.shared.getImages { data in
+            print("Images: ", data.count)
+        }
+        
         self.title = album.name
     }
     

@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseStorage
 
 class AlbumService {
     
@@ -44,8 +45,32 @@ class AlbumService {
         
         let albumDocument = Firestore.getFirestore().album(id: albumId)
         
-        let imagesIds = imagesWithIds.map { $0.id }
-        albumDocument.setData(["images": imagesIds])
+//        let imagesIds = imagesWithIds.map { $0.id }
+//        albumDocument.updateData(["images": imagesIds])
+        
+        let imagesRef = Storage.storage().reference(withPath: "images")
+        
+        imagesWithIds.forEach { (id, imageData) in
+            let imageRef = imagesRef.child(id)
+            imageRef.putData(imageData, metadata: nil, completion: { (meta, error) in
+                if let error = error {
+                    print("error: ", error.localizedDescription)
+                    return
+                }
+                
+                imageRef.downloadURL(completion: { (url, error) in
+                    imageRef.downloadURL(completion: { (url, error) in
+                        if let error = error {
+                            print("error: ", error.localizedDescription)
+                            return
+                        }
+                        
+                        albumDocument.updateData(["images": FieldValue.arrayUnion([url!.absoluteString])])
+//                        albumDocument.setData(["images": [url!.absoluteString]], merge: true)
+                    })
+                })
+            })
+        }
         
         completion()
     }
