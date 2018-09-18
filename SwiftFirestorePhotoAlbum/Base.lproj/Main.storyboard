@@ -93,15 +93,26 @@
                                             <rect key="frame" x="0.0" y="0.0" width="125" height="86"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="yayaya" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Md9-bd-lsJ">
-                                                    <rect key="frame" x="50" y="33" width="52" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="jYf-Z4-f1s">
+                                                    <rect key="frame" x="52.5" y="33" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DlT-2A-d69">
+                                                    <rect key="frame" x="0.0" y="0.0" width="125" height="86"/>
+                                                </imageView>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="jYf-Z4-f1s" firstAttribute="centerX" secondItem="dDV-ZG-cdP" secondAttribute="centerX" id="2f9-p9-zje"/>
+                                            <constraint firstAttribute="trailing" secondItem="DlT-2A-d69" secondAttribute="trailing" id="NgY-u1-wzt"/>
+                                            <constraint firstAttribute="bottom" secondItem="DlT-2A-d69" secondAttribute="bottom" id="SHv-65-0dx"/>
+                                            <constraint firstItem="DlT-2A-d69" firstAttribute="top" secondItem="dDV-ZG-cdP" secondAttribute="top" id="UoA-6O-ZoA"/>
+                                            <constraint firstItem="jYf-Z4-f1s" firstAttribute="centerY" secondItem="dDV-ZG-cdP" secondAttribute="centerY" id="ZAX-eH-sXa"/>
+                                            <constraint firstItem="DlT-2A-d69" firstAttribute="leading" secondItem="dDV-ZG-cdP" secondAttribute="leading" id="Zph-FG-Nxz"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="activityIndicator" destination="jYf-Z4-f1s" id="E2u-0Q-Y0b"/>
+                                            <outlet property="imageView" destination="DlT-2A-d69" id="wRC-9P-DJZ"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
