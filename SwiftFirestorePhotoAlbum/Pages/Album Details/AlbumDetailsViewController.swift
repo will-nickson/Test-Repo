@@ -10,6 +10,7 @@ import UIKit
 
 class AlbumDetailsViewController: UIViewController {
     var album: AlbumEntity!
+    var images: [ImageEntity]?
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -17,11 +18,14 @@ class AlbumDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ImageService.shared.getImages { data in
-            print("Images: ", data.count)
-        }
-        
         self.title = album.name
+        
+        AlbumService.shared.getAllImagesFor(albumId: album.albumId) { [weak self] images in
+            guard let strongSelf = self else { return }
+            strongSelf.images = images
+            strongSelf.collectionView.reloadData()
+            strongSelf.activityIndicator.stopAnimating()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

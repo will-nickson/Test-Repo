@@ -39,19 +39,49 @@ class AlbumService {
         }
     }
     
+    func getAllImagesFor(albumId: String, images: @escaping ([ImageEntity]) -> ()) {
+        let imagesCollection = Firestore.getFirestore().images()
+            .whereField("albumId", isEqualTo: albumId)
+        
+        imagesCollection.addSnapshotListener { (query, error) in
+            if let error = error {
+                print("error: ", error.localizedDescription)
+                return
+            }
+            
+            guard let query = query else { return }
+            
+            let imagesEntities = query.documents
+                .map { ImageEntity(id: $0.documentID, data: $0.data()) }
+            
+            DispatchQueue.main.async {
+                images(imagesEntities)
+            }
+        }
+    }
+    
     func upload(images: [Data], albumId: String, completion: @escaping () -> ()) {
-        let imagesWithIds = images
-            .map { (id: UUID().uuidString, imageData: $0) }
+        let imagesCollectionRef = Firestore.getFirestore().images()
         
-        let albumDocument = Firestore.getFirestore().album(id: albumId)
+        let imagesWithDocRefs = images
+            .map { (docRef: imagesCollectionRef.document(), imageData: $0) }
         
-//        let imagesIds = imagesWithIds.map { $0.id }
-//        albumDocument.updateData(["images": imagesIds])
+        let createImagesBatch = Firestore.getFirestore().batch()
+        
+        imagesWithDocRefs.forEach { (docRef, _) in
+            let data = ["albumId": albumId, "dateAdded": Timestamp(date: Date()), "status": "pending"] as [String : Any]
+            createImagesBatch.setData(data, forDocument: docRef)
+        }
+        
+        createImagesBatch.commit { _ in
+            completion()
+        }
         
         let imagesRef = Storage.storage().reference(withPath: "images")
         
-        imagesWithIds.forEach { (id, imageData) in
-            let imageRef = imagesRef.child(id)
+        imagesWithDocRefs.forEach { (docRef, imageData) in
+            let imageRef = imagesRef.child(docRef.documentID)
+            
             imageRef.putData(imageData, metadata: nil, completion: { (meta, error) in
                 if let error = error {
                     print("error: ", error.localizedDescription)
@@ -65,13 +95,11 @@ class AlbumService {
                             return
                         }
                         
-                        albumDocument.updateData(["images": FieldValue.arrayUnion([url!.absoluteString])])
-//                        albumDocument.setData(["images": [url!.absoluteString]], merge: true)
+                        let data = ["status": "ready", "url": url!.absoluteString] as [String : Any]
+                        docRef.updateData(data)
                     })
                 })
             })
         }
-        
-        completion()
     }
 }

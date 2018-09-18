@@ -12,6 +12,8 @@
 		FA4BF648213DDB10000A5F96 /* AlbumService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BF647213DDB10000A5F96 /* AlbumService.swift */; };
 		FA4BF64B213DDB78000A5F96 /* AlbumEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BF64A213DDB78000A5F96 /* AlbumEntity.swift */; };
 		FA84790921517C5F0044EEE5 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84790821517C5F0044EEE5 /* ImageService.swift */; };
+		FA84790B21519B0B0044EEE5 /* ImageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84790A21519B0B0044EEE5 /* ImageEntity.swift */; };
+		FA84790D21519F980044EEE5 /* AlbumDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84790C21519F980044EEE5 /* AlbumDetailsCell.swift */; };
 		FAA9D255214DA5C9000DE691 /* AlbumListViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9D254214DA5C9000DE691 /* AlbumListViewController+DataSource.swift */; };
 		FAA9D25A214DABE2000DE691 /* AlbumListViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9D259214DABE2000DE691 /* AlbumListViewController+Delegate.swift */; };
 		FAA9D25C214DB150000DE691 /* AlbumDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9D25B214DB150000DE691 /* AlbumDetailsViewController.swift */; };
@@ -36,6 +38,8 @@
 		FA4BF647213DDB10000A5F96 /* AlbumService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumService.swift; sourceTree = "<group>"; };
 		FA4BF64A213DDB78000A5F96 /* AlbumEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumEntity.swift; sourceTree = "<group>"; };
 		FA84790821517C5F0044EEE5 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		FA84790A21519B0B0044EEE5 /* ImageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEntity.swift; sourceTree = "<group>"; };
+		FA84790C21519F980044EEE5 /* AlbumDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsCell.swift; sourceTree = "<group>"; };
 		FAA9D254214DA5C9000DE691 /* AlbumListViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumListViewController+DataSource.swift"; sourceTree = "<group>"; };
 		FAA9D259214DABE2000DE691 /* AlbumListViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumListViewController+Delegate.swift"; sourceTree = "<group>"; };
 		FAA9D25B214DB150000DE691 /* AlbumDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				FA4BF64A213DDB78000A5F96 /* AlbumEntity.swift */,
+				FA84790A21519B0B0044EEE5 /* ImageEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 			children = (
 				FAA9D25B214DB150000DE691 /* AlbumDetailsViewController.swift */,
 				FAA9D269214EEED6000DE691 /* AlbumDetailsViewController+DataSource.swift */,
+				FA84790C21519F980044EEE5 /* AlbumDetailsCell.swift */,
 			);
 			path = "Album Details";
 			sourceTree = "<group>";
@@ -317,10 +323,12 @@
 				FAA9D255214DA5C9000DE691 /* AlbumListViewController+DataSource.swift in Sources */,
 				FAA9D26A214EEED6000DE691 /* AlbumDetailsViewController+DataSource.swift in Sources */,
 				FAB52273213D52F200D04742 /* AlbumListViewController.swift in Sources */,
+				FA84790B21519B0B0044EEE5 /* ImageEntity.swift in Sources */,
 				FAA9D268214EBC52000DE691 /* SelectPhotosCell.swift in Sources */,
 				FAA9D266214EAE38000DE691 /* SelectPhotosViewController+Delegate.swift in Sources */,
 				FAA9D264214EAE14000DE691 /* SelectPhotosViewController+DataSource.swift in Sources */,
 				FAB52271213D52F200D04742 /* AppDelegate.swift in Sources */,
+				FA84790D21519F980044EEE5 /* AlbumDetailsCell.swift in Sources */,
 				FAA9D25E214DB5CA000DE691 /* Firestore+Extensions.swift in Sources */,
 				FAA9D25A214DABE2000DE691 /* AlbumListViewController+Delegate.swift in Sources */,
 				FA4BF64B213DDB78000A5F96 /* AlbumEntity.swift in Sources */,
