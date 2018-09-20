@@ -31,6 +31,8 @@ class AlbumDetailsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SelectPhotosSegue", let selectPhotosController = segue.destination.childViewControllers.first as? SelectPhotosViewController {
             selectPhotosController.album = album
+        } else if segue.identifier == "PhotoDetailsSegue", let photoDetailsController = segue.destination as? PhotoDetailsViewController, let index = sender as? Int, images?.count ?? 0 > index, let imageEntity = images?[index] {
+            photoDetailsController.image = imageEntity
         }
     }
 }
