@@ -22,11 +22,15 @@ extension Firestore {
         return self.collection("albums")
     }
     
+    func album(id: String) -> DocumentReference {
+        return self.albums().document(id)
+    }
+    
     func images() -> CollectionReference {
         return self.collection("images")
     }
     
-    func album(id: String) -> DocumentReference {
-        return self.albums().document(id)
+    func image(id: String) -> DocumentReference {
+        return self.images().document(id)
     }
 }

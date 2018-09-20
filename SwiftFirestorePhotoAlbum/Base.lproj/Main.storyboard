@@ -152,7 +152,7 @@
             </objects>
             <point key="canvasLocation" x="2036" y="-556.37181409295351"/>
         </scene>
-        <!--Photo Details View Controller-->
+        <!--Photo-->
         <scene sceneID="RtU-Lq-igm">
             <objects>
                 <viewController id="DGS-Yr-Aav" customClass="PhotoDetailsViewController" customModule="SwiftFirestorePhotoAlbum" customModuleProvider="target" sceneMemberID="viewController">
@@ -160,17 +160,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Photo Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxJ-Gz-rZl">
-                                <rect key="frame" x="190" y="223" width="102" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Rtg-vT-q4s">
+                                <rect key="frame" x="177.5" y="333.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p6Z-rD-urf">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="I8N-Lm-Y7H" firstAttribute="trailing" secondItem="p6Z-rD-urf" secondAttribute="trailing" id="CLN-8p-lAi"/>
+                            <constraint firstItem="p6Z-rD-urf" firstAttribute="top" secondItem="I8N-Lm-Y7H" secondAttribute="top" id="R0r-2v-ldS"/>
+                            <constraint firstItem="Rtg-vT-q4s" firstAttribute="centerX" secondItem="I8N-Lm-Y7H" secondAttribute="centerX" id="WoI-Fw-2Yq"/>
+                            <constraint firstItem="I8N-Lm-Y7H" firstAttribute="bottom" secondItem="p6Z-rD-urf" secondAttribute="bottom" id="onC-Hc-Q29"/>
+                            <constraint firstItem="Rtg-vT-q4s" firstAttribute="centerY" secondItem="I8N-Lm-Y7H" secondAttribute="centerY" id="uTE-Sx-Yyw"/>
+                            <constraint firstItem="p6Z-rD-urf" firstAttribute="leading" secondItem="I8N-Lm-Y7H" secondAttribute="leading" id="vhG-Yn-ELU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="I8N-Lm-Y7H"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="w4R-1f-rX6"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Photo" id="bCN-MZ-mxN">
+                        <barButtonItem key="rightBarButtonItem" title="Delete" id="b8y-D7-Inf">
+                            <connections>
+                                <action selector="deleteHandler:" destination="DGS-Yr-Aav" id="yn2-rm-zH0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Rtg-vT-q4s" id="d96-nB-pD6"/>
+                        <outlet property="imageView" destination="p6Z-rD-urf" id="FHT-Ny-0ea"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D0r-JP-ty3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

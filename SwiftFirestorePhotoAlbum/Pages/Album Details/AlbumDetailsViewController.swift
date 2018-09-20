@@ -20,7 +20,7 @@ class AlbumDetailsViewController: UIViewController {
         
         self.title = album.name
         
-        AlbumService.shared.getAllImagesFor(albumId: album.albumId) { [weak self] images in
+        ImageService.shared.getAllImagesFor(albumId: album.albumId) { [weak self] images in
             guard let strongSelf = self else { return }
             strongSelf.images = images
             strongSelf.collectionView.reloadData()

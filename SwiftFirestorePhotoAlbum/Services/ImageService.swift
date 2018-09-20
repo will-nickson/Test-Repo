@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 import FirebaseStorage
 
 class ImageService {
@@ -15,7 +16,12 @@ class ImageService {
     static let shared = ImageService()
     
     func getImageDataFor(imageEntity: ImageEntity, completion: @escaping (Data) -> ()) {
-        URLSession.shared.dataTask(with: URL(string: imageEntity.url!)!) { (data, _, error) in
+        guard let urlString = imageEntity.url else {
+            completion(Data())
+            return
+        }
+        
+        URLSession.shared.dataTask(with: URL(string: urlString)!) { (data, _, error) in
             if let error = error {
                 print("error: ", error.localizedDescription)
                 return
@@ -27,5 +33,86 @@ class ImageService {
                 completion(data)
             }
          }.resume()
+    }
+    
+    func getAllImagesFor(albumId: String, images: @escaping ([ImageEntity]) -> ()) {
+        let imagesCollection = Firestore.getFirestore().images()
+            .whereField("albumId", isEqualTo: albumId)
+        
+        imagesCollection.addSnapshotListener { (query, error) in
+            if let error = error {
+                print("error: ", error.localizedDescription)
+                return
+            }
+            
+            guard let query = query else { return }
+            
+            let imagesEntities = query.documents
+                .map { ImageEntity(id: $0.documentID, data: $0.data()) }
+            
+            DispatchQueue.main.async {
+                images(imagesEntities)
+            }
+        }
+    }
+    
+    func delete(imageId: String, completion: @escaping () -> ()) {
+        let imageDocRef = Firestore.getFirestore().image(id: imageId)
+        
+        imageDocRef.delete { error in
+            if let error = error {
+                print("error: ", error.localizedDescription)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                completion()
+            }
+        }
+        
+        Storage.storage().image(id: imageId).delete()
+    }
+    
+    func upload(images: [Data], albumId: String, completion: @escaping () -> ()) {
+        let imagesCollectionRef = Firestore.getFirestore().images()
+        
+        let imagesWithDocRefs = images
+            .map { (docRef: imagesCollectionRef.document(), imageData: $0) }
+        
+        let createImagesBatch = Firestore.getFirestore().batch()
+        
+        imagesWithDocRefs.forEach { (docRef, _) in
+            let data = ["albumId": albumId, "dateAdded": Timestamp(date: Date()), "status": "pending"] as [String : Any]
+            createImagesBatch.setData(data, forDocument: docRef)
+        }
+        
+        createImagesBatch.commit { _ in
+            completion()
+        }
+        
+        let imagesRef = Storage.storage().images()
+        
+        imagesWithDocRefs.forEach { (docRef, imageData) in
+            let imageRef = imagesRef.child(docRef.documentID)
+            
+            imageRef.putData(imageData, metadata: nil, completion: { (meta, error) in
+                if let error = error {
+                    print("error: ", error.localizedDescription)
+                    return
+                }
+                
+                imageRef.downloadURL(completion: { (url, error) in
+                    imageRef.downloadURL(completion: { (url, error) in
+                        if let error = error {
+                            print("error: ", error.localizedDescription)
+                            return
+                        }
+                        
+                        let data = ["status": "ready", "url": url!.absoluteString] as [String : Any]
+                        docRef.updateData(data)
+                    })
+                })
+            })
+        }
     }
 }

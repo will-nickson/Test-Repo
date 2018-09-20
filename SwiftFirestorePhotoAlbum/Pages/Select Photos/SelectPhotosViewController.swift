@@ -70,7 +70,7 @@ class SelectPhotosViewController: UIViewController {
                 .map { images[$0] }
                 .map { UIImagePNGRepresentation($0)! }
             
-            AlbumService.shared.upload(images: imagesDataToUpload, albumId: album.albumId) {
+            ImageService.shared.upload(images: imagesDataToUpload, albumId: album.albumId) {
                 self.dismiss(animated: true, completion: nil)
             }
             
