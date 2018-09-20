@@ -14,15 +14,18 @@ class ImageService {
     
     static let shared = ImageService()
     
-    func getImages(completion: @escaping ([Data]) -> ()) {
-        
-        let storage = Storage.storage()
-        
-        storage.reference(withPath: "images").child("lol.jpg").downloadURL { (url, error) in
-            print("get images yaya: ", url ?? "No URL", error?.localizedDescription)
+    func getImageDataFor(imageEntity: ImageEntity, completion: @escaping (Data) -> ()) {
+        URLSession.shared.dataTask(with: URL(string: imageEntity.url!)!) { (data, _, error) in
+            if let error = error {
+                print("error: ", error.localizedDescription)
+                return
+            }
             
-            let imagesData = [Data]()
-            completion(imagesData)
-        }
+            guard let data = data else { return }
+            
+            DispatchQueue.main.async {
+                completion(data)
+            }
+         }.resume()
     }
 }

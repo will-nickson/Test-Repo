@@ -14,6 +14,8 @@ class PhotoDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("image: ", image)
+        ImageService.shared.getImageDataFor(imageEntity: image) { data in
+            print("data: ", data)
+        }
     }
 }

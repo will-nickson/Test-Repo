@@ -19,8 +19,8 @@ extension AlbumDetailsViewController: UICollectionViewDataSource {
         if let images = images, images.count > indexPath.row {
             let image = images[indexPath.row]
             
-            if image.status == .ready, let url = image.url {
-                cell.configure(url: url)
+            if image.status == .ready {
+                cell.configure(image: image)
             }
         }
         
