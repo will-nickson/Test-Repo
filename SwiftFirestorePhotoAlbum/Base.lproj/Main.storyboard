@@ -55,7 +55,11 @@
                         <barButtonItem title="Item" id="Q5W-Ib-BLw"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Albums" id="kVB-9Z-SN3">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="D9x-Bc-uIB"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="D9x-Bc-uIB">
+                            <connections>
+                                <action selector="addAlbumTappedHandler:" destination="BYZ-38-t0r" id="ggv-pc-8Ij"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

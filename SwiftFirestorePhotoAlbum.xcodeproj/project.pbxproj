@@ -167,8 +167,8 @@
 			children = (
 				FAA9D25B214DB150000DE691 /* AlbumDetailsViewController.swift */,
 				FAA9D269214EEED6000DE691 /* AlbumDetailsViewController+DataSource.swift */,
-				FA84790C21519F980044EEE5 /* AlbumDetailsCell.swift */,
 				FA9161E32154167C00FA713D /* AlbumDetailsViewController+Delegate.swift */,
+				FA84790C21519F980044EEE5 /* AlbumDetailsCell.swift */,
 			);
 			path = "Album Details";
 			sourceTree = "<group>";

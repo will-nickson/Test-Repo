@@ -34,5 +34,29 @@ class AlbumListViewController: UIViewController {
             albumDetailsController.album = album
         }
     }
+    
+    @IBAction func addAlbumTappedHandler(_ sender: Any) {
+        let alertController = UIAlertController(title: "Add new album", message: nil, preferredStyle: .alert)
+        
+        alertController.addTextField { textField in
+            textField.placeholder = "Album name"
+        }
+        
+        let textField = alertController.textFields![0] as UITextField
+        
+        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+            self.activityIndicator.startAnimating()
+            AlbumService.shared.addAlbumWith(name: textField.text ?? "No Name")
+            alertController.dismiss(animated: true)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(saveAction)
+        
+        self.present(alertController, animated: true)
+    }
+    
 }
 

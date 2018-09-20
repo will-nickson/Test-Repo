@@ -16,6 +16,12 @@ class AlbumService {
     
     static let shared = AlbumService()
     
+    func addAlbumWith(name: String) {
+        let albumsCollection = Firestore.getFirestore().albums()
+        let data = ["name": name, "dateCreated": Timestamp(date: Date())] as [String : Any]
+        albumsCollection.addDocument(data: data)
+    }
+    
     func getAll(albums: @escaping ([AlbumEntity]) -> ()) {
         let albumsCollection = Firestore.getFirestore().albums()
         
