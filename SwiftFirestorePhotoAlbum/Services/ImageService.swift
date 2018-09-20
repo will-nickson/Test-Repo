@@ -73,6 +73,30 @@ class ImageService {
         Storage.storage().image(id: imageId).delete()
     }
     
+    func deleteAllImagesFor(albumId: String) {
+        let firestoreRef = Firestore.getFirestore()
+        let imagesDeleteBatch = firestoreRef.batch()
+    
+        let imagesToDeleteCollection = firestoreRef.images()
+            .whereField("albumId", isEqualTo: albumId)
+        
+        imagesToDeleteCollection.getDocuments { (query, error) in
+            if let error = error {
+                print("error: ", error.localizedDescription)
+                return
+            }
+            
+            guard let query = query else { return }
+            
+            query.documents.forEach { qds in
+                imagesDeleteBatch.deleteDocument(qds.reference)
+                Storage.storage().image(id: qds.documentID).delete()
+            }
+            
+            imagesDeleteBatch.commit()
+        }
+    }
+    
     func upload(images: [Data], albumId: String, completion: @escaping () -> ()) {
         let imagesCollectionRef = Firestore.getFirestore().images()
         

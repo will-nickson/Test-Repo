@@ -13,4 +13,15 @@ extension AlbumListViewController: UITableViewDelegate {
         performSegue(withIdentifier: "AlbumDetailsSegue", sender: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+            if let albumId = self.albums?[indexPath.row].albumId {
+                AlbumService.shared.deleteAlbumWith(albumId: albumId)
+            }
+            completionHandler(true)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [action])
+    }
 }

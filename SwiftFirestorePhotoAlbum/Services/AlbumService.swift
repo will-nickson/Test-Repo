@@ -22,6 +22,11 @@ class AlbumService {
         albumsCollection.addDocument(data: data)
     }
     
+    func deleteAlbumWith(albumId: String) {
+        Firestore.getFirestore().album(id: albumId).delete()
+        ImageService.shared.deleteAllImagesFor(albumId: albumId)
+    }
+    
     func getAll(albums: @escaping ([AlbumEntity]) -> ()) {
         let albumsCollection = Firestore.getFirestore().albums()
         
