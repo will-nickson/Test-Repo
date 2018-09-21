@@ -70,7 +70,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1214" y="-556"/>
+            <point key="canvasLocation" x="1213.5999999999999" y="-556.37181409295351"/>
         </scene>
         <!--Album Details View Controller-->
         <scene sceneID="nBC-8Y-wio">

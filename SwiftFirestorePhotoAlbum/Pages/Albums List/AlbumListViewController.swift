@@ -20,6 +20,13 @@ class AlbumListViewController: UIViewController {
         
         AlbumService.shared.getAll { albums in
             self.albums = albums
+            
+            if albums.isEmpty {
+                self.tableView.addNoDataLabel(text: "No Albums added\n\nPlease press the Add button above to start")
+            } else {
+                self.tableView.removeNoDataLabel()
+            }
+            
             self.tableView.reloadData()
             self.activityIndicator.stopAnimating()
         }

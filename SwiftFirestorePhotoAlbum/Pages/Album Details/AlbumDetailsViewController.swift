@@ -17,12 +17,18 @@ class AlbumDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.title = album.name
         
         ImageService.shared.getAllImagesFor(albumId: album.albumId) { [weak self] images in
             guard let strongSelf = self else { return }
             strongSelf.images = images
+            
+            if images.isEmpty {
+                strongSelf.collectionView.addNoDataLabel(text: "No Photos added yet.\n\nPlease press Add button to begin")
+            } else {
+                strongSelf.collectionView.removeNoDataLabel()
+            }
+            
             strongSelf.collectionView.reloadData()
             strongSelf.activityIndicator.stopAnimating()
         }
