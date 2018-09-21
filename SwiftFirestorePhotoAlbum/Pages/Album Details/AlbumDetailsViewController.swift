@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class AlbumDetailsViewController: UIViewController {
     var album: AlbumEntity!
     var images: [ImageEntity]?
+    var queryListener: ListenerRegistration!
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -18,8 +20,12 @@ class AlbumDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = album.name
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        ImageService.shared.getAllImagesFor(albumId: album.albumId) { [weak self] images in
+        queryListener = ImageService.shared.getAllImagesFor(albumId: album.albumId) { [weak self] images in
             guard let strongSelf = self else { return }
             strongSelf.images = images
             
@@ -32,6 +38,11 @@ class AlbumDetailsViewController: UIViewController {
             strongSelf.collectionView.reloadData()
             strongSelf.activityIndicator.stopAnimating()
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        queryListener.remove()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

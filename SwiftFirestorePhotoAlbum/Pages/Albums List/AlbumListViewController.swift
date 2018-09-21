@@ -7,18 +7,24 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class AlbumListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var albums: [AlbumEntity]?
+    var queryListener: ListenerRegistration!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        AlbumService.shared.getAll { albums in
+        queryListener = AlbumService.shared.getAll { albums in
             self.albums = albums
             
             if albums.isEmpty {
@@ -30,6 +36,11 @@ class AlbumListViewController: UIViewController {
             self.tableView.reloadData()
             self.activityIndicator.stopAnimating()
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        queryListener.remove()
     }
     
     private func setupUI() {

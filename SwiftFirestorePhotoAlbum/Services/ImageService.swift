@@ -35,17 +35,17 @@ class ImageService {
          }.resume()
     }
     
-    func getAllImagesFor(albumId: String, images: @escaping ([ImageEntity]) -> ()) {
+    func getAllImagesFor(albumId: String, images: @escaping ([ImageEntity]) -> ()) -> ListenerRegistration {
         let imagesCollection = Firestore.getFirestore().images()
             .whereField("albumId", isEqualTo: albumId)
         
-        imagesCollection.addSnapshotListener { (query, error) in
-            if let error = error {
-                print("error: ", error.localizedDescription)
+        return imagesCollection.addSnapshotListener { (query, error) in
+            guard let query = query else {
+                if let error = error {
+                    print("error getting images: ", error.localizedDescription)
+                }
                 return
             }
-            
-            guard let query = query else { return }
             
             let imagesEntities = query.documents
                 .map { ImageEntity(id: $0.documentID, data: $0.data()) }

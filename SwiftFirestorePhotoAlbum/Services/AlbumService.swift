@@ -27,21 +27,18 @@ class AlbumService {
         ImageService.shared.deleteAllImagesFor(albumId: albumId)
     }
     
-    func getAll(albums: @escaping ([AlbumEntity]) -> ()) {
+    func getAll(albums: @escaping ([AlbumEntity]) -> ()) -> ListenerRegistration {
         let albumsCollection = Firestore.getFirestore().albums()
         
-        albumsCollection.addSnapshotListener { querySnapshot, error in
-            if let error = error {
-                print("error getting albums: ", error.localizedDescription)
+        return albumsCollection.addSnapshotListener { query, error in
+            guard let query = query else {
+                if let error = error {
+                    print("error getting albums: ", error.localizedDescription)
+                }
                 return
             }
             
-            guard let querySnapshot = querySnapshot else {
-                print("empty querySnapshot")
-                return
-            }
-            
-            let albumList = querySnapshot.documents
+            let albumList = query.documents
                 .map { AlbumEntity(id: $0.documentID, data: $0.data() ) }
             
             DispatchQueue.main.async {
