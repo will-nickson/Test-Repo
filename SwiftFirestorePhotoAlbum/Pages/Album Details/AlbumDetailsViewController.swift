@@ -15,6 +15,8 @@ class AlbumDetailsViewController: UIViewController, ImageTaskDownloadedDelegate 
     var imageTasks = [String: ImageTask]()
     var queryListener: ListenerRegistration!
     
+    var selectedPhoto: (index: Int, imageView: PhotoDetailsViewController)?
+    
     let urlSession = URLSession(configuration: URLSessionConfiguration.default)
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -27,6 +29,8 @@ class AlbumDetailsViewController: UIViewController, ImageTaskDownloadedDelegate 
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        selectedPhoto = nil
         
         queryListener = ImageService.shared.getAllImagesFor(albumId: album.albumId) { [weak self] images in
             guard let strongSelf = self else { return }
@@ -55,6 +59,10 @@ class AlbumDetailsViewController: UIViewController, ImageTaskDownloadedDelegate 
     func imageDownloaded(id: String) {
         if let index = imageEntities?.firstIndex(where: { $0.imageId == id }) {
             collectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
+            
+            if let selectedPhoto = self.selectedPhoto, selectedPhoto.index == index, imageEntities?.count ?? 0 > index, let imageEntity = imageEntities?[index], let imageTask = imageTasks[imageEntity.imageId], let image = imageTask.image {
+                selectedPhoto.imageView.image = image
+            }
         }
     }
     
@@ -67,7 +75,8 @@ class AlbumDetailsViewController: UIViewController, ImageTaskDownloadedDelegate 
         if segue.identifier == "SelectPhotosSegue", let selectPhotosController = segue.destination.childViewControllers.first as? SelectPhotosViewController {
             selectPhotosController.album = album
         } else if segue.identifier == "PhotoDetailsSegue", let photoDetailsController = segue.destination as? PhotoDetailsViewController, let index = sender as? Int, imageEntities?.count ?? 0 > index, let imageEntity = imageEntities?[index] {
-            photoDetailsController.image = imageEntity
+            selectedPhoto = (index, photoDetailsController)
+            photoDetailsController.imageId = imageEntity.imageId
         }
     }
 }

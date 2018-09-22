@@ -15,26 +15,6 @@ class ImageService {
     
     static let shared = ImageService()
     
-    func getImageDataFor(imageEntity: ImageEntity, completion: @escaping (Data) -> ()) {
-        guard let urlString = imageEntity.url else {
-            completion(Data())
-            return
-        }
-        
-        URLSession.shared.dataTask(with: URL(string: urlString)!) { (data, _, error) in
-            if let error = error {
-                print("error: ", error.localizedDescription)
-                return
-            }
-            
-            guard let data = data else { return }
-            
-            DispatchQueue.main.async {
-                completion(data)
-            }
-         }.resume()
-    }
-    
     func getAllImagesFor(albumId: String, images: @escaping ([ImageEntity]) -> ()) -> ListenerRegistration {
         let imagesCollection = Firestore.getFirestore().images()
             .whereField("albumId", isEqualTo: albumId)

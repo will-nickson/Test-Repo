@@ -9,25 +9,22 @@
 import UIKit
 
 class PhotoDetailsViewController: UIViewController {
-    var image: ImageEntity!
+    var imageId: String!
     
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        ImageService.shared.getImageDataFor(imageEntity: image) { data in
-            let image = UIImage(data: data)
-            self.imageView.image = image
+    var image: UIImage? {
+        didSet {
+            imageView.image = image
             self.activityIndicator.stopAnimating()
         }
     }
     
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBAction func deleteHandler(_ sender: Any) {
         activityIndicator.startAnimating()
         
-        ImageService.shared.delete(imageId: image.imageId) {
+        ImageService.shared.delete(imageId: imageId) {
             self.navigationController?.popViewController(animated: true)
         }
     }
