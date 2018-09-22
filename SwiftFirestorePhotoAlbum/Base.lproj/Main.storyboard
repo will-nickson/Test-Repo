@@ -22,13 +22,67 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AlbumCell" id="RcK-Mo-qAK">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AlbumCell" rowHeight="76" id="RcK-Mo-qAK" customClass="AlbumListCell" customModule="SwiftFirestorePhotoAlbum" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RcK-Mo-qAK" id="X4i-se-O6E">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="75.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5k1-ZS-v3r">
+                                                    <rect key="frame" x="20" y="4" width="335" height="38.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Added on" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkF-ZZ-oGG">
+                                                    <rect key="frame" x="20" y="46.5" width="74" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11 Mar 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1d-AO-ER9">
+                                                    <rect key="frame" x="98" y="46.5" width="92" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7v-qc-Tqb">
+                                                    <rect key="frame" x="323" y="46.5" width="32" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# of Photos:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEL-01-KYH">
+                                                    <rect key="frame" x="226" y="46.5" width="93" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="5k1-ZS-v3r" secondAttribute="trailing" constant="20" symbolic="YES" id="5WP-Fv-aA0"/>
+                                                <constraint firstItem="a1d-AO-ER9" firstAttribute="centerY" secondItem="vkF-ZZ-oGG" secondAttribute="centerY" id="5aB-Vv-9Ob"/>
+                                                <constraint firstItem="5k1-ZS-v3r" firstAttribute="top" secondItem="X4i-se-O6E" secondAttribute="top" constant="4" id="B1x-7T-NMA"/>
+                                                <constraint firstItem="EEL-01-KYH" firstAttribute="centerY" secondItem="a1d-AO-ER9" secondAttribute="centerY" id="BNb-uZ-FiC"/>
+                                                <constraint firstAttribute="bottom" secondItem="EEL-01-KYH" secondAttribute="bottom" constant="8" id="GNb-n2-AYf"/>
+                                                <constraint firstItem="vkF-ZZ-oGG" firstAttribute="top" secondItem="5k1-ZS-v3r" secondAttribute="bottom" constant="4" id="U2b-aA-QGf"/>
+                                                <constraint firstAttribute="bottom" secondItem="vkF-ZZ-oGG" secondAttribute="bottom" constant="8" id="U4S-Xh-oz9"/>
+                                                <constraint firstItem="x7v-qc-Tqb" firstAttribute="centerY" secondItem="EEL-01-KYH" secondAttribute="centerY" id="VEe-VO-m1q"/>
+                                                <constraint firstItem="x7v-qc-Tqb" firstAttribute="leading" secondItem="EEL-01-KYH" secondAttribute="trailing" constant="4" id="VJa-hJ-cVL"/>
+                                                <constraint firstAttribute="bottom" secondItem="a1d-AO-ER9" secondAttribute="bottom" constant="8" id="cPK-FN-x9G"/>
+                                                <constraint firstItem="a1d-AO-ER9" firstAttribute="leading" secondItem="vkF-ZZ-oGG" secondAttribute="trailing" constant="4" id="hel-kb-1SS"/>
+                                                <constraint firstItem="vkF-ZZ-oGG" firstAttribute="leading" secondItem="X4i-se-O6E" secondAttribute="leading" constant="20" symbolic="YES" id="lji-mx-BlB"/>
+                                                <constraint firstAttribute="trailing" secondItem="x7v-qc-Tqb" secondAttribute="trailing" constant="20" symbolic="YES" id="oXN-lh-1cm"/>
+                                                <constraint firstAttribute="bottom" secondItem="x7v-qc-Tqb" secondAttribute="bottom" constant="8" id="rQR-Wf-RjG"/>
+                                                <constraint firstItem="5k1-ZS-v3r" firstAttribute="leading" secondItem="X4i-se-O6E" secondAttribute="leading" constant="20" symbolic="YES" id="w8c-Xh-2NK"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="albumNameLabel" destination="5k1-ZS-v3r" id="Vyg-JX-273"/>
+                                            <outlet property="createdOnLabel" destination="a1d-AO-ER9" id="y55-lQ-N2C"/>
+                                            <outlet property="numberOfPhotosLabel" destination="x7v-qc-Tqb" id="Ptb-K5-L19"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

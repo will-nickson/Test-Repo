@@ -10,10 +10,10 @@ import UIKit
 
 extension AlbumListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCell", for: indexPath) as! AlbumListCell
         
         if let album = albums?[indexPath.row] {
-            cell.textLabel?.text = album.name
+            cell.configure(albumName: album.name, createdOn: "12 Mar 2018", numberOfPhotos: "33")
         }
         
         return cell
