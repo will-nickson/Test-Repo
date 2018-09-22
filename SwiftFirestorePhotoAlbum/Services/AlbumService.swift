@@ -29,6 +29,7 @@ class AlbumService {
     
     func getAll(albums: @escaping ([AlbumEntity]) -> ()) -> ListenerRegistration {
         let albumsCollection = Firestore.getFirestore().albums()
+            .order(by: "dateCreated")
         
         return albumsCollection.addSnapshotListener { query, error in
             guard let query = query else {

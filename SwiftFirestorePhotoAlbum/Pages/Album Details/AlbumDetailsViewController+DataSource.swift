@@ -10,18 +10,15 @@ import UIKit
 
 extension AlbumDetailsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images?.count ?? 0
+        return imageEntities?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumDetailsCell", for: indexPath) as! AlbumDetailsCell
         
-        if let images = images, images.count > indexPath.row {
-            let image = images[indexPath.row]
-            
-            if image.status == .ready {
-                cell.configure(image: image)
-            }
+        if let imageEntities = imageEntities, imageEntities.count > indexPath.row {
+            let imageEntity = imageEntities[indexPath.row]
+            cell.configure(image: imageTasks[imageEntity.imageId]?.image)
         }
         
         return cell

@@ -9,10 +9,13 @@
 import UIKit
 import FirebaseFirestore
 
-class AlbumDetailsViewController: UIViewController {
+class AlbumDetailsViewController: UIViewController, ImageTaskDownloadedDelegate {
     var album: AlbumEntity!
-    var images: [ImageEntity]?
+    var imageEntities: [ImageEntity]?
+    var imageTasks = [String: ImageTask]()
     var queryListener: ListenerRegistration!
+    
+    let urlSession = URLSession(configuration: URLSessionConfiguration.default)
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -27,7 +30,8 @@ class AlbumDetailsViewController: UIViewController {
         
         queryListener = ImageService.shared.getAllImagesFor(albumId: album.albumId) { [weak self] images in
             guard let strongSelf = self else { return }
-            strongSelf.images = images
+            strongSelf.imageEntities = images
+            strongSelf.updateImageTasks()
             
             if images.isEmpty {
                 strongSelf.collectionView.addNoDataLabel(text: "No Photos added yet.\n\nPlease press Add button to begin")
@@ -40,6 +44,20 @@ class AlbumDetailsViewController: UIViewController {
         }
     }
     
+    func updateImageTasks() {
+        imageEntities?.forEach { imageEntity in
+            if imageEntity.status == .ready, imageTasks[imageEntity.imageId] == nil, let urlStr = imageEntity.url, let url = URL(string: urlStr) {
+                imageTasks[imageEntity.imageId] = ImageTask(id: imageEntity.imageId, url: url, session: urlSession, delegate: self)
+            }
+        }
+    }
+    
+    func imageDownloaded(id: String) {
+        if let index = imageEntities?.firstIndex(where: { $0.imageId == id }) {
+            collectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
+        }
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         queryListener.remove()
@@ -48,7 +66,7 @@ class AlbumDetailsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SelectPhotosSegue", let selectPhotosController = segue.destination.childViewControllers.first as? SelectPhotosViewController {
             selectPhotosController.album = album
-        } else if segue.identifier == "PhotoDetailsSegue", let photoDetailsController = segue.destination as? PhotoDetailsViewController, let index = sender as? Int, images?.count ?? 0 > index, let imageEntity = images?[index] {
+        } else if segue.identifier == "PhotoDetailsSegue", let photoDetailsController = segue.destination as? PhotoDetailsViewController, let index = sender as? Int, imageEntities?.count ?? 0 > index, let imageEntity = imageEntities?[index] {
             photoDetailsController.image = imageEntity
         }
     }

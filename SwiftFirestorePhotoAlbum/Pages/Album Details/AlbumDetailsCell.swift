@@ -12,11 +12,13 @@ class AlbumDetailsCell: UICollectionViewCell {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var imageView: UIImageView!
     
-    func configure(image: ImageEntity) {
-        ImageService.shared.getImageDataFor(imageEntity: image) { data in
-            let image = UIImage(data: data)
-            self.imageView.image = image
+    func configure(image: UIImage?) {
+        self.imageView.image = image
+        
+        if image != nil {
             self.activityIndicator.stopAnimating()
+        } else {
+            self.activityIndicator.startAnimating()
         }
     }
 }
