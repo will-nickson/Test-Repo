@@ -12,6 +12,16 @@ class AlbumDetailsCell: UICollectionViewCell {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var imageView: UIImageView!
     
+    override func awakeFromNib() {
+        setupCell()
+    }
+    
+    private func setupCell() {
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.black.cgColor
+        layer.cornerRadius = 8
+    }
+    
     func configure(image: UIImage?) {
         self.imageView.image = image
         

@@ -20,6 +20,7 @@
 		FA9161E92154537700FA713D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9161E82154537700FA713D /* UIView+Extensions.swift */; };
 		FA9161EB2154593D00FA713D /* TableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9161EA2154593D00FA713D /* TableView+Extensions.swift */; };
 		FA9161EE21567DD800FA713D /* ImageTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9161ED21567DD800FA713D /* ImageTask.swift */; };
+		FA9161F02156ADFB00FA713D /* AlbumDetailsViewController+FlowLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9161EF2156ADFB00FA713D /* AlbumDetailsViewController+FlowLayoutDelegate.swift */; };
 		FAA9D255214DA5C9000DE691 /* AlbumListViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9D254214DA5C9000DE691 /* AlbumListViewController+DataSource.swift */; };
 		FAA9D25A214DABE2000DE691 /* AlbumListViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9D259214DABE2000DE691 /* AlbumListViewController+Delegate.swift */; };
 		FAA9D25C214DB150000DE691 /* AlbumDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9D25B214DB150000DE691 /* AlbumDetailsViewController.swift */; };
@@ -52,6 +53,7 @@
 		FA9161E82154537700FA713D /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		FA9161EA2154593D00FA713D /* TableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+Extensions.swift"; sourceTree = "<group>"; };
 		FA9161ED21567DD800FA713D /* ImageTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTask.swift; sourceTree = "<group>"; };
+		FA9161EF2156ADFB00FA713D /* AlbumDetailsViewController+FlowLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumDetailsViewController+FlowLayoutDelegate.swift"; sourceTree = "<group>"; };
 		FAA9D254214DA5C9000DE691 /* AlbumListViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumListViewController+DataSource.swift"; sourceTree = "<group>"; };
 		FAA9D259214DABE2000DE691 /* AlbumListViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumListViewController+Delegate.swift"; sourceTree = "<group>"; };
 		FAA9D25B214DB150000DE691 /* AlbumDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				FAA9D25B214DB150000DE691 /* AlbumDetailsViewController.swift */,
 				FAA9D269214EEED6000DE691 /* AlbumDetailsViewController+DataSource.swift */,
 				FA9161E32154167C00FA713D /* AlbumDetailsViewController+Delegate.swift */,
+				FA9161EF2156ADFB00FA713D /* AlbumDetailsViewController+FlowLayoutDelegate.swift */,
 				FA84790C21519F980044EEE5 /* AlbumDetailsCell.swift */,
 			);
 			path = "Album Details";
@@ -369,6 +372,7 @@
 				FAB52273213D52F200D04742 /* AlbumListViewController.swift in Sources */,
 				FA84790B21519B0B0044EEE5 /* ImageEntity.swift in Sources */,
 				FAA9D268214EBC52000DE691 /* SelectPhotosCell.swift in Sources */,
+				FA9161F02156ADFB00FA713D /* AlbumDetailsViewController+FlowLayoutDelegate.swift in Sources */,
 				FAA9D266214EAE38000DE691 /* SelectPhotosViewController+Delegate.swift in Sources */,
 				FAA9D264214EAE14000DE691 /* SelectPhotosViewController+DataSource.swift in Sources */,
 				FAB52271213D52F200D04742 /* AppDelegate.swift in Sources */,
