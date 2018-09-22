@@ -35,26 +35,26 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Added on" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkF-ZZ-oGG">
-                                                    <rect key="frame" x="20" y="46.5" width="74" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vkF-ZZ-oGG">
+                                                    <rect key="frame" x="20" y="46.5" width="66" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11 Mar 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1d-AO-ER9">
-                                                    <rect key="frame" x="98" y="46.5" width="92" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11 Mar 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="a1d-AO-ER9">
+                                                    <rect key="frame" x="90" y="46.5" width="92" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7v-qc-Tqb">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="x7v-qc-Tqb">
                                                     <rect key="frame" x="323" y="46.5" width="32" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# of Photos:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEL-01-KYH">
-                                                    <rect key="frame" x="226" y="46.5" width="93" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photos:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EEL-01-KYH">
+                                                    <rect key="frame" x="260.5" y="46.5" width="58.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -66,6 +66,7 @@
                                                 <constraint firstItem="5k1-ZS-v3r" firstAttribute="top" secondItem="X4i-se-O6E" secondAttribute="top" constant="4" id="B1x-7T-NMA"/>
                                                 <constraint firstItem="EEL-01-KYH" firstAttribute="centerY" secondItem="a1d-AO-ER9" secondAttribute="centerY" id="BNb-uZ-FiC"/>
                                                 <constraint firstAttribute="bottom" secondItem="EEL-01-KYH" secondAttribute="bottom" constant="8" id="GNb-n2-AYf"/>
+                                                <constraint firstItem="EEL-01-KYH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="a1d-AO-ER9" secondAttribute="trailing" constant="4" id="OMa-RX-18L"/>
                                                 <constraint firstItem="vkF-ZZ-oGG" firstAttribute="top" secondItem="5k1-ZS-v3r" secondAttribute="bottom" constant="4" id="U2b-aA-QGf"/>
                                                 <constraint firstAttribute="bottom" secondItem="vkF-ZZ-oGG" secondAttribute="bottom" constant="8" id="U4S-Xh-oz9"/>
                                                 <constraint firstItem="x7v-qc-Tqb" firstAttribute="centerY" secondItem="EEL-01-KYH" secondAttribute="centerY" id="VEe-VO-m1q"/>
