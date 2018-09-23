@@ -10,16 +10,29 @@ import UIKit
 
 class PhotoDetailsViewController: UIViewController {
     var imageId: String!
-    
     var image: UIImage? {
         didSet {
-            imageView.image = image
-            self.activityIndicator.stopAnimating()
+            if imageView != nil, activityIndicator != nil, let image = image {
+                set(image: image)
+            }
         }
     }
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let image = image {
+            set(image: image)
+        }
+    }
+    
+    private func set(image: UIImage) {
+        imageView.image = image
+        activityIndicator.stopAnimating()
+    }
     
     @IBAction func deleteHandler(_ sender: Any) {
         activityIndicator.startAnimating()

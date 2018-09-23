@@ -14,6 +14,7 @@ class SelectPhotosCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             imageView.layer.borderColor = isSelected ? UIColor.red.cgColor : UIColor.black.cgColor
+            imageView.layer.borderWidth = isSelected ? 2: 1
         }
     }
     
@@ -21,7 +22,8 @@ class SelectPhotosCell: UICollectionViewCell {
         super.awakeFromNib()
         
         imageView.layer.borderColor = UIColor.black.cgColor
-        imageView.layer.borderWidth = 2
+        imageView.layer.borderWidth = 1
+        imageView.layer.cornerRadius = 8
     }
     
     func configure(image: UIImage) {

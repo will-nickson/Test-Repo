@@ -22,13 +22,13 @@
 		FA9161EE21567DD800FA713D /* ImageTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9161ED21567DD800FA713D /* ImageTask.swift */; };
 		FA9161F02156ADFB00FA713D /* AlbumDetailsViewController+FlowLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9161EF2156ADFB00FA713D /* AlbumDetailsViewController+FlowLayoutDelegate.swift */; };
 		FA9161F22156B9B600FA713D /* AlbumListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9161F12156B9B600FA713D /* AlbumListCell.swift */; };
+		FA9161F4215812DD00FA713D /* SelectPhotosViewController+FlowLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9161F3215812DD00FA713D /* SelectPhotosViewController+FlowLayoutDelegate.swift */; };
 		FAA9D255214DA5C9000DE691 /* AlbumListViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9D254214DA5C9000DE691 /* AlbumListViewController+DataSource.swift */; };
 		FAA9D25A214DABE2000DE691 /* AlbumListViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9D259214DABE2000DE691 /* AlbumListViewController+Delegate.swift */; };
 		FAA9D25C214DB150000DE691 /* AlbumDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9D25B214DB150000DE691 /* AlbumDetailsViewController.swift */; };
 		FAA9D25E214DB5CA000DE691 /* Firestore+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9D25D214DB5CA000DE691 /* Firestore+Extensions.swift */; };
 		FAA9D262214DC001000DE691 /* SelectPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9D261214DC001000DE691 /* SelectPhotosViewController.swift */; };
 		FAA9D264214EAE14000DE691 /* SelectPhotosViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9D263214EAE14000DE691 /* SelectPhotosViewController+DataSource.swift */; };
-		FAA9D266214EAE38000DE691 /* SelectPhotosViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9D265214EAE38000DE691 /* SelectPhotosViewController+Delegate.swift */; };
 		FAA9D268214EBC52000DE691 /* SelectPhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9D267214EBC52000DE691 /* SelectPhotosCell.swift */; };
 		FAA9D26A214EEED6000DE691 /* AlbumDetailsViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9D269214EEED6000DE691 /* AlbumDetailsViewController+DataSource.swift */; };
 		FAB52271213D52F200D04742 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB52270213D52F200D04742 /* AppDelegate.swift */; };
@@ -56,13 +56,13 @@
 		FA9161ED21567DD800FA713D /* ImageTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTask.swift; sourceTree = "<group>"; };
 		FA9161EF2156ADFB00FA713D /* AlbumDetailsViewController+FlowLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumDetailsViewController+FlowLayoutDelegate.swift"; sourceTree = "<group>"; };
 		FA9161F12156B9B600FA713D /* AlbumListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListCell.swift; sourceTree = "<group>"; };
+		FA9161F3215812DD00FA713D /* SelectPhotosViewController+FlowLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SelectPhotosViewController+FlowLayoutDelegate.swift"; sourceTree = "<group>"; };
 		FAA9D254214DA5C9000DE691 /* AlbumListViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumListViewController+DataSource.swift"; sourceTree = "<group>"; };
 		FAA9D259214DABE2000DE691 /* AlbumListViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumListViewController+Delegate.swift"; sourceTree = "<group>"; };
 		FAA9D25B214DB150000DE691 /* AlbumDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsViewController.swift; sourceTree = "<group>"; };
 		FAA9D25D214DB5CA000DE691 /* Firestore+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firestore+Extensions.swift"; sourceTree = "<group>"; };
 		FAA9D261214DC001000DE691 /* SelectPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotosViewController.swift; sourceTree = "<group>"; };
 		FAA9D263214EAE14000DE691 /* SelectPhotosViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SelectPhotosViewController+DataSource.swift"; sourceTree = "<group>"; };
-		FAA9D265214EAE38000DE691 /* SelectPhotosViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SelectPhotosViewController+Delegate.swift"; sourceTree = "<group>"; };
 		FAA9D267214EBC52000DE691 /* SelectPhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotosCell.swift; sourceTree = "<group>"; };
 		FAA9D269214EEED6000DE691 /* AlbumDetailsViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumDetailsViewController+DataSource.swift"; sourceTree = "<group>"; };
 		FAB5226D213D52F200D04742 /* SwiftFirestorePhotoAlbum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFirestorePhotoAlbum.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,7 +200,7 @@
 			children = (
 				FAA9D261214DC001000DE691 /* SelectPhotosViewController.swift */,
 				FAA9D263214EAE14000DE691 /* SelectPhotosViewController+DataSource.swift */,
-				FAA9D265214EAE38000DE691 /* SelectPhotosViewController+Delegate.swift */,
+				FA9161F3215812DD00FA713D /* SelectPhotosViewController+FlowLayoutDelegate.swift */,
 				FAA9D267214EBC52000DE691 /* SelectPhotosCell.swift */,
 			);
 			path = "Select Photos";
@@ -376,13 +376,13 @@
 				FA84790B21519B0B0044EEE5 /* ImageEntity.swift in Sources */,
 				FAA9D268214EBC52000DE691 /* SelectPhotosCell.swift in Sources */,
 				FA9161F02156ADFB00FA713D /* AlbumDetailsViewController+FlowLayoutDelegate.swift in Sources */,
-				FAA9D266214EAE38000DE691 /* SelectPhotosViewController+Delegate.swift in Sources */,
 				FAA9D264214EAE14000DE691 /* SelectPhotosViewController+DataSource.swift in Sources */,
 				FAB52271213D52F200D04742 /* AppDelegate.swift in Sources */,
 				FA9161F22156B9B600FA713D /* AlbumListCell.swift in Sources */,
 				FA84790D21519F980044EEE5 /* AlbumDetailsCell.swift in Sources */,
 				FA9161EB2154593D00FA713D /* TableView+Extensions.swift in Sources */,
 				FAA9D25E214DB5CA000DE691 /* Firestore+Extensions.swift in Sources */,
+				FA9161F4215812DD00FA713D /* SelectPhotosViewController+FlowLayoutDelegate.swift in Sources */,
 				FAA9D25A214DABE2000DE691 /* AlbumListViewController+Delegate.swift in Sources */,
 				FA4BF64B213DDB78000A5F96 /* AlbumEntity.swift in Sources */,
 				FA9161E2215413F500FA713D /* PhotoDetailsViewController.swift in Sources */,

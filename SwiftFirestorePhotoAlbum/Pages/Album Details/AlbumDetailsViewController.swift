@@ -15,7 +15,7 @@ class AlbumDetailsViewController: UIViewController, ImageTaskDownloadedDelegate 
     var imageTasks = [String: ImageTask]()
     var queryListener: ListenerRegistration!
     
-    var selectedPhoto: (index: Int, imageView: PhotoDetailsViewController)?
+    var selectedPhoto: (index: Int, photoDetailsController: PhotoDetailsViewController)?
     
     let urlSession = URLSession(configuration: URLSessionConfiguration.default)
     
@@ -24,6 +24,10 @@ class AlbumDetailsViewController: UIViewController, ImageTaskDownloadedDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
+//        self.navigationController?.navigationItem.largeTitleDisplayMode = .always
+        
         self.title = album.name
     }
     
@@ -61,7 +65,7 @@ class AlbumDetailsViewController: UIViewController, ImageTaskDownloadedDelegate 
             collectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
             
             if let selectedPhoto = self.selectedPhoto, selectedPhoto.index == index, imageEntities?.count ?? 0 > index, let imageEntity = imageEntities?[index], let imageTask = imageTasks[imageEntity.imageId], let image = imageTask.image {
-                selectedPhoto.imageView.image = image
+                selectedPhoto.photoDetailsController.image = image
             }
         }
     }
@@ -77,6 +81,7 @@ class AlbumDetailsViewController: UIViewController, ImageTaskDownloadedDelegate 
         } else if segue.identifier == "PhotoDetailsSegue", let photoDetailsController = segue.destination as? PhotoDetailsViewController, let index = sender as? Int, imageEntities?.count ?? 0 > index, let imageEntity = imageEntities?[index] {
             selectedPhoto = (index, photoDetailsController)
             photoDetailsController.imageId = imageEntity.imageId
+            photoDetailsController.image = imageTasks[imageEntity.imageId]?.image
         }
     }
 }
