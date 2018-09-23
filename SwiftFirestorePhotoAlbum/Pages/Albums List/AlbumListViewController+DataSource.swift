@@ -13,7 +13,7 @@ extension AlbumListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCell", for: indexPath) as! AlbumListCell
         
         if let album = albums?[indexPath.row] {
-            cell.configure(albumName: album.name, createdOn: "12 Mar 2018", numberOfPhotos: "33")
+            cell.configure(albumName: album.name, createdOn: album.dateCreated, numberOfPhotos: album.numberOfPhotos)
         }
         
         return cell

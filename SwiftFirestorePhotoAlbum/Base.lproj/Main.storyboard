@@ -110,7 +110,7 @@
                         <barButtonItem title="Item" id="Q5W-Ib-BLw"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Albums" id="kVB-9Z-SN3">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="D9x-Bc-uIB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="D9x-Bc-uIB">
                             <connections>
                                 <action selector="addAlbumTappedHandler:" destination="BYZ-38-t0r" id="ggv-pc-8Ij"/>
                             </connections>
@@ -195,7 +195,7 @@
                         <viewLayoutGuide key="safeArea" id="iod-lC-eyf"/>
                     </view>
                     <navigationItem key="navigationItem" id="MRR-gy-JNW">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="nb7-Mf-jfl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nb7-Mf-jfl">
                             <connections>
                                 <segue destination="Lii-Ee-lgn" kind="presentation" identifier="SelectPhotosSegue" id="FTc-5b-dfz"/>
                             </connections>
@@ -241,7 +241,7 @@
                         <barButtonItem title="Item" id="w4R-1f-rX6"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Photo" id="bCN-MZ-mxN">
-                        <barButtonItem key="rightBarButtonItem" title="Delete" id="b8y-D7-Inf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="b8y-D7-Inf">
                             <connections>
                                 <action selector="deleteHandler:" destination="DGS-Yr-Aav" id="yn2-rm-zH0"/>
                             </connections>
@@ -324,7 +324,7 @@
                                 <action selector="cancelTappedHandler:" destination="X5a-d2-IZE" id="0zq-ng-Svj"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="90D-pl-Gee">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="90D-pl-Gee">
                             <connections>
                                 <action selector="saveTappedHandler:" destination="X5a-d2-IZE" id="aed-gA-tqT"/>
                             </connections>
