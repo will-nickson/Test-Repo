@@ -1,4 +1,6 @@
 *.xcodeproj/project.xcworkspace/*
 */xcuserdata/*
 */Support Files/GoogleService-Info.plist
+node_modules/
+.firebaserc
 Pods/
