@@ -27,7 +27,6 @@ class SelectPhotosViewController: UIViewController {
             case .authorized:
                 let fetchOptions = PHFetchOptions()
                 let allPhotos = PHAsset.fetchAssets(with: .image, options: fetchOptions)
-                print("Found \(allPhotos.count) assets")
                 
                 let im = PHImageManager.default()
                 

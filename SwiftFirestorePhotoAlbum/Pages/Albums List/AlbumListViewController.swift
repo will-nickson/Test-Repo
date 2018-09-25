@@ -28,7 +28,7 @@ class AlbumListViewController: UIViewController {
             self.albums = albums
             
             if albums.isEmpty {
-                self.tableView.addNoDataLabel(text: "No Albums added\n\nPlease press the Add button above to start")
+                self.tableView.addNoDataLabel(text: "No Albums added\n\nPlease press the + button above to start")
             } else {
                 self.tableView.removeNoDataLabel()
             }

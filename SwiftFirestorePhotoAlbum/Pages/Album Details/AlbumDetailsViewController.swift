@@ -24,10 +24,7 @@ class AlbumDetailsViewController: UIViewController, ImageTaskDownloadedDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
-//        self.navigationController?.navigationItem.largeTitleDisplayMode = .always
-        
+
         self.title = album.name
     }
     
@@ -42,13 +39,21 @@ class AlbumDetailsViewController: UIViewController, ImageTaskDownloadedDelegate 
             strongSelf.updateImageTasks()
             
             if images.isEmpty {
-                strongSelf.collectionView.addNoDataLabel(text: "No Photos added yet.\n\nPlease press Add button to begin")
+                strongSelf.collectionView.addNoDataLabel(text: "No Photos added yet.\n\nPlease press the + button to begin")
             } else {
                 strongSelf.collectionView.removeNoDataLabel()
             }
             
             strongSelf.collectionView.reloadData()
             strongSelf.activityIndicator.stopAnimating()
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if self.isMovingFromParentViewController {
+            queryListener.remove()
         }
     }
     
@@ -68,11 +73,6 @@ class AlbumDetailsViewController: UIViewController, ImageTaskDownloadedDelegate 
                 selectedPhoto.photoDetailsController.image = image
             }
         }
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        queryListener.remove()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

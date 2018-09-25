@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 struct AlbumEntity {
     let albumId: String
@@ -17,7 +18,8 @@ struct AlbumEntity {
     init(id: String, data: [String: Any]) {
         self.albumId = id
         self.name = data["name"] as? String ?? ""
-        self.dateCreated = data["dateCreated"] as? Date ?? Date.init()
+        let dateTimestamp = data["dateCreated"] as? Timestamp
+        self.dateCreated = dateTimestamp?.dateValue() ?? Date.init()
         self.numberOfPhotos = data["numberOfPhotos"] as? Int ?? 0
     }
 }
