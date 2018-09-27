@@ -18,6 +18,8 @@ class ImageTask {
     let session: URLSession
     let delegate: ImageTaskDownloadedDelegate
     
+    var retries = 0
+    
     var image: UIImage?
     
     private var task: URLSessionDownloadTask?
@@ -35,6 +37,16 @@ class ImageTask {
     
     func resume() {
         if !isDownloading && !isFinishedDownloading {
+            
+            if let cachedImage = loadImageFromCache(imageId: self.id) {
+                DispatchQueue.main.async {
+                    self.image = cachedImage
+                    self.delegate.imageDownloaded(id: self.id)
+                }
+                self.isFinishedDownloading = true
+                return
+            }
+            
             isDownloading = true
             
             if let resumeData = resumeData {
@@ -60,6 +72,13 @@ class ImageTask {
     private func downloadTaskCompletionHandler(url: URL?, response: URLResponse?, error: Error?) {
         if let error = error {
             print("Error downloading: ", error)
+            
+            if retries < 3 {
+                retries = retries + 1
+                isDownloading = false
+                self.resume()
+            }
+            
             return
         }
         
@@ -72,6 +91,45 @@ class ImageTask {
             self.delegate.imageDownloaded(id: self.id)
         }
         
+        saveImageToDisk(imageId: self.id, image: image)
+        
         self.isFinishedDownloading = true
+    }
+    
+    private func loadImageFromCache(imageId: String) -> UIImage? {
+        let fm = FileManager.default
+        
+        let fileURL = getImageFileUrl(imageId: imageId)
+        
+        if fm.fileExists(atPath: fileURL.path), let data = try? Data(contentsOf: fileURL) {
+            return UIImage(data: data)
+        }
+        
+        return nil
+    }
+    
+    private func saveImageToDisk(imageId: String, image: UIImage) {
+        let fileURL = getImageFileUrl(imageId: imageId)
+        
+        do {
+            if let imageData = UIImageJPEGRepresentation(image, 1) {
+                try imageData.write(to: fileURL)
+            }
+        } catch {
+            print("Error saving image data to disk: ", error.localizedDescription)
+        }
+    }
+    
+    private func getImageFileUrl(imageId: String) -> URL {
+        let fm = FileManager.default
+        
+        let documentDirectory = try! fm.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        let imagesDir = documentDirectory.appendingPathComponent("images", isDirectory: true)
+        
+        if !fm.fileExists(atPath: imagesDir.path) {
+            try? fm.createDirectory(at: imagesDir, withIntermediateDirectories: false, attributes: nil)
+        }
+        
+        return imagesDir.appendingPathComponent(imageId)
     }
 }
