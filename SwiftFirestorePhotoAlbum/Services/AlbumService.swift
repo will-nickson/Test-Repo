@@ -2,13 +2,13 @@
 //  AlbumService.swift
 //  SwiftFirestorePhotoAlbum
 //
-//  Created by Alex Akrimpai on 03/09/2018.
-//  Copyright © 2018 Alex Akrimpai. All rights reserved.
+//  comment comment comment
 //
 
 import Foundation
 import FirebaseFirestore
 import FirebaseStorage
+//comment
 
 class AlbumService {
     
