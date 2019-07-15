@@ -1,15 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AOa-KP-DlW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AOa-KP-DlW">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Home-->
+        <scene sceneID="pXb-8V-SWz">
+            <objects>
+                <viewController storyboardIdentifier="HomeController" title="Home" id="H7e-J1-mzM" customClass="ViewController" customModule="SwiftFirestorePhotoAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tNp-kY-hwS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nCy-AB-Ouq">
+                                <rect key="frame" x="144" y="260.5" width="87" height="30"/>
+                                <state key="normal" title="ADD PHOTO"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="oTh-HP-Sx7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nCy-AB-Ouq" firstAttribute="centerY" secondItem="tNp-kY-hwS" secondAttribute="centerY" id="Mpy-YC-tA3"/>
+                            <constraint firstItem="nCy-AB-Ouq" firstAttribute="centerX" secondItem="tNp-kY-hwS" secondAttribute="centerX" id="h41-BH-gif"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rgJ-ZF-WqO"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CrN-l9-hys" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="381.60000000000002" y="-556.37181409295351"/>
+        </scene>
         <!--Albums-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -339,6 +367,38 @@
             </objects>
             <point key="canvasLocation" x="2908" y="-1290"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="JsT-Jk-7f4">
+            <objects>
+                <viewController id="d2g-hN-EuR" customClass="ViewController" customModule="SwiftFirestorePhotoAlbum" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CdT-OZ-T6p">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9m-V7-Lhr">
+                                <rect key="frame" x="165" y="260.5" width="45" height="30"/>
+                                <state key="normal" title="LOGIN"/>
+                                <connections>
+                                    <action selector="loginTapped:" destination="d2g-hN-EuR" eventType="touchUpInside" id="yxF-qW-pus"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="a9m-V7-Lhr" firstAttribute="centerY" secondItem="CdT-OZ-T6p" secondAttribute="centerY" id="IlC-Ny-diV"/>
+                            <constraint firstItem="a9m-V7-Lhr" firstAttribute="centerX" secondItem="CdT-OZ-T6p" secondAttribute="centerX" id="ovp-yC-qQ1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5ST-ET-HXr"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ksL-6T-bGj"/>
+                    <connections>
+                        <segue destination="H7e-J1-mzM" kind="show" identifier="goHome" id="cvI-Ao-8HV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kJN-Ca-7jF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-713" y="-556"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="3vG-C6-F7d">
             <objects>
@@ -350,12 +410,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ink-jb-rrK"/>
+                        <segue destination="d2g-hN-EuR" kind="relationship" relationship="rootViewController" id="4g6-He-WTY"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwj-hr-rFt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="429.60000000000002" y="-564.46776611694156"/>
+            <point key="canvasLocation" x="-1686" y="-556"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b93-VC-1u8">

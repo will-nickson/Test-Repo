@@ -10,4 +10,11 @@ target 'SwiftFirestorePhotoAlbum' do
    pod 'Firebase/Core'
    pod 'Firebase/Firestore'
    pod 'Firebase/Storage'
+   pod 'Firebase/Database'
+   pod 'Firebase/Auth'
+   pod 'Firebase/Analytics'
+   pod 'FirebaseUI'
+   pod 'FBSDKCoreKit'
+   pod 'FirebaseUI/Email'
+
 end

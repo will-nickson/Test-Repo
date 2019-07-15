@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A00B60BB22D8CE140074BBB5 /* FavouritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00B60BA22D8CE140074BBB5 /* FavouritesController.swift */; };
+		A00B60BF22D8D1D00074BBB5 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00B60BE22D8D1D00074BBB5 /* StartViewController.swift */; };
+		A00B60C122D8D1E30074BBB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00B60C022D8D1E30074BBB5 /* LoginViewController.swift */; };
+		A00B60C322D8D1F70074BBB5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00B60C222D8D1F70074BBB5 /* SignUpViewController.swift */; };
+		A00B60C522D8D20B0074BBB5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00B60C422D8D20B0074BBB5 /* HomeViewController.swift */; };
+		A00B60C722DC8A330074BBB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A00B60C622DC8A330074BBB5 /* GoogleService-Info.plist */; };
 		AA4CD3D3DA935B977BB632E3 /* Pods_SwiftFirestorePhotoAlbum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89556B92807D42C49671DAB9 /* Pods_SwiftFirestorePhotoAlbum.framework */; };
-		CEF2D3EE22D8A88100A10FE6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEF2D3ED22D8A88100A10FE6 /* GoogleService-Info.plist */; };
 		FA4BF648213DDB10000A5F96 /* AlbumService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BF647213DDB10000A5F96 /* AlbumService.swift */; };
 		FA4BF64B213DDB78000A5F96 /* AlbumEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BF64A213DDB78000A5F96 /* AlbumEntity.swift */; };
 		FA84790921517C5F0044EEE5 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84790821517C5F0044EEE5 /* ImageService.swift */; };
@@ -41,8 +46,13 @@
 /* Begin PBXFileReference section */
 		38088408ACF486D2D41E09EE /* Pods-SwiftFirestorePhotoAlbum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFirestorePhotoAlbum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFirestorePhotoAlbum/Pods-SwiftFirestorePhotoAlbum.debug.xcconfig"; sourceTree = "<group>"; };
 		89556B92807D42C49671DAB9 /* Pods_SwiftFirestorePhotoAlbum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftFirestorePhotoAlbum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A00B60BA22D8CE140074BBB5 /* FavouritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesController.swift; sourceTree = "<group>"; };
+		A00B60BE22D8D1D00074BBB5 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		A00B60C022D8D1E30074BBB5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A00B60C222D8D1F70074BBB5 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		A00B60C422D8D20B0074BBB5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A00B60C622DC8A330074BBB5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CC879D8C97A8169EF5D5BCE0 /* Pods-SwiftFirestorePhotoAlbum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFirestorePhotoAlbum.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFirestorePhotoAlbum/Pods-SwiftFirestorePhotoAlbum.release.xcconfig"; sourceTree = "<group>"; };
-		CEF2D3ED22D8A88100A10FE6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA4BF647213DDB10000A5F96 /* AlbumService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumService.swift; sourceTree = "<group>"; };
 		FA4BF64A213DDB78000A5F96 /* AlbumEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumEntity.swift; sourceTree = "<group>"; };
 		FA84790821517C5F0044EEE5 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
@@ -103,10 +113,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A00B60B322D8CD800074BBB5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A00B60BA22D8CE140074BBB5 /* FavouritesController.swift */,
+				A00B60BE22D8D1D00074BBB5 /* StartViewController.swift */,
+				A00B60C022D8D1E30074BBB5 /* LoginViewController.swift */,
+				A00B60C222D8D1F70074BBB5 /* SignUpViewController.swift */,
+				A00B60C422D8D20B0074BBB5 /* HomeViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		FA4BF645213DD5D1000A5F96 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				CEF2D3ED22D8A88100A10FE6 /* GoogleService-Info.plist */,
+				A00B60C622DC8A330074BBB5 /* GoogleService-Info.plist */,
 				FAB52270213D52F200D04742 /* AppDelegate.swift */,
 				FA9161E5215426E600FA713D /* Extensions */,
 				FAB52277213D52F400D04742 /* Assets.xcassets */,
@@ -227,6 +249,7 @@
 		FAB5226F213D52F200D04742 /* SwiftFirestorePhotoAlbum */ = {
 			isa = PBXGroup;
 			children = (
+				A00B60B322D8CD800074BBB5 /* Controller */,
 				FA9161EC21567DC200FA713D /* Tasks */,
 				FAA9D257214DA979000DE691 /* Pages */,
 				FA4BF649213DDB2A000A5F96 /* Entities */,
@@ -249,6 +272,7 @@
 				FAB5226A213D52F200D04742 /* Frameworks */,
 				FAB5226B213D52F200D04742 /* Resources */,
 				36A298C7971A3D9260F5CE03 /* [CP] Embed Pods Frameworks */,
+				196DE34E1E95B4C69DD2526F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -298,7 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAB5227B213D52F400D04742 /* LaunchScreen.storyboard in Resources */,
-				CEF2D3EE22D8A88100A10FE6 /* GoogleService-Info.plist in Resources */,
+				A00B60C722DC8A330074BBB5 /* GoogleService-Info.plist in Resources */,
 				FAB52278213D52F400D04742 /* Assets.xcassets in Resources */,
 				FAB52276213D52F200D04742 /* Main.storyboard in Resources */,
 			);
@@ -323,6 +347,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		196DE34E1E95B4C69DD2526F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftFirestorePhotoAlbum/Pods-SwiftFirestorePhotoAlbum-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftFirestorePhotoAlbum/Pods-SwiftFirestorePhotoAlbum-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftFirestorePhotoAlbum/Pods-SwiftFirestorePhotoAlbum-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		36A298C7971A3D9260F5CE03 /* [CP] Embed Pods Frameworks */ = {
@@ -351,10 +392,12 @@
 			files = (
 				FAA9D255214DA5C9000DE691 /* AlbumListViewController+DataSource.swift in Sources */,
 				FAA9D26A214EEED6000DE691 /* AlbumDetailsViewController+DataSource.swift in Sources */,
+				A00B60BF22D8D1D00074BBB5 /* StartViewController.swift in Sources */,
 				FA9161EE21567DD800FA713D /* ImageTask.swift in Sources */,
 				FA9161E92154537700FA713D /* UIView+Extensions.swift in Sources */,
 				FAB52273213D52F200D04742 /* AlbumListViewController.swift in Sources */,
 				FA84790B21519B0B0044EEE5 /* ImageEntity.swift in Sources */,
+				A00B60BB22D8CE140074BBB5 /* FavouritesController.swift in Sources */,
 				FAA9D268214EBC52000DE691 /* SelectPhotosCell.swift in Sources */,
 				FA9161F02156ADFB00FA713D /* AlbumDetailsViewController+FlowLayoutDelegate.swift in Sources */,
 				FAA9D264214EAE14000DE691 /* SelectPhotosViewController+DataSource.swift in Sources */,
@@ -362,13 +405,16 @@
 				FA9161F22156B9B600FA713D /* AlbumListCell.swift in Sources */,
 				FA84790D21519F980044EEE5 /* AlbumDetailsCell.swift in Sources */,
 				FA9161EB2154593D00FA713D /* TableView+Extensions.swift in Sources */,
+				A00B60C322D8D1F70074BBB5 /* SignUpViewController.swift in Sources */,
 				FAA9D25E214DB5CA000DE691 /* Firestore+Extensions.swift in Sources */,
 				FA9161F4215812DD00FA713D /* SelectPhotosViewController+FlowLayoutDelegate.swift in Sources */,
+				A00B60C122D8D1E30074BBB5 /* LoginViewController.swift in Sources */,
 				FAA9D25A214DABE2000DE691 /* AlbumListViewController+Delegate.swift in Sources */,
 				FA4BF64B213DDB78000A5F96 /* AlbumEntity.swift in Sources */,
 				FA9161E2215413F500FA713D /* PhotoDetailsViewController.swift in Sources */,
 				FA9161E72154271800FA713D /* Storage+Extensions.swift in Sources */,
 				FAA9D262214DC001000DE691 /* SelectPhotosViewController.swift in Sources */,
+				A00B60C522D8D20B0074BBB5 /* HomeViewController.swift in Sources */,
 				FA9161E42154167C00FA713D /* AlbumDetailsViewController+Delegate.swift in Sources */,
 				FA4BF648213DDB10000A5F96 /* AlbumService.swift in Sources */,
 				FAA9D25C214DB150000DE691 /* AlbumDetailsViewController.swift in Sources */,
@@ -518,13 +564,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3256U3978R;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/SwiftFirestorePhotoAlbum/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = test.SwiftFirestorePhotoAlbum;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.find-my-face.UserInterface";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -537,13 +583,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3256U3978R;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/SwiftFirestorePhotoAlbum/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = test.SwiftFirestorePhotoAlbum;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.find-my-face.UserInterface";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
