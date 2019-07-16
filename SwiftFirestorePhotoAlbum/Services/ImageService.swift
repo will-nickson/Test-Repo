@@ -95,7 +95,11 @@ class ImageService {
             completion()
         }
         
-        let imagesRef = Storage.storage().images()
+        let storage = Storage.storage()
+        
+        let storageRef = storage.reference()
+        
+        let imagesRef = storageRef.child("Users")
         
         imagesWithDocRefs.forEach { (docRef, imageData) in
             let imageRef = imagesRef.child(docRef.documentID)
